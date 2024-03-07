@@ -90,8 +90,18 @@ public class StringArrayUtils {
      */ // TODO
     public static boolean isPangramic(String[] array)
     {
-
-        return false;
+        String arrayToString = Arrays.toString(array).toLowerCase();
+        int test = 0;
+        boolean testBoolean = false;
+        for (char a = 'a'; a <= 'z'; a++) {
+            test = arrayToString.indexOf(a);
+            if (test >= 0) {
+                testBoolean = true;
+            } else {testBoolean = false;
+                break;}
+            System.out.println(a);
+        }
+        return testBoolean;
     }
 
     /**
