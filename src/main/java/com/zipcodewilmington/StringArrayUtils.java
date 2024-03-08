@@ -1,5 +1,4 @@
 package com.zipcodewilmington;
-import javax.swing.text.Element;
 import java.util.*;
 import java.util.Arrays;
 /**
@@ -111,7 +110,13 @@ public class StringArrayUtils {
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value)
     {
-        return 0;
+        int number1 = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(value)) {
+                number1++;
+            }
+        }
+        return number1;
     }
 
     /**
@@ -121,8 +126,20 @@ public class StringArrayUtils {
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove)
     {
-        return null;
+        ArrayList<String> newArray = new ArrayList<String>();
+        for (String str: array)
+        {
+           if (!str.equals(valueToRemove))
+           {
+               newArray.add(str);
+           }
+        }
+        String[] finalArr = new String[newArray.size()];
+        finalArr = newArray.toArray(finalArr);
+        return finalArr;
     }
+
+
 
     /**
      * @param array array of chars
