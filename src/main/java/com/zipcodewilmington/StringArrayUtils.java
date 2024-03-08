@@ -147,7 +147,18 @@ public class StringArrayUtils {
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array)
     {
-        return null;
+       ArrayList<String> newArray = new ArrayList<String>();
+       newArray.add(array[0]);
+       for (int i = 1; i < array.length; i++)
+       {
+           if (!array[i-1].equals(array[i]))
+           {
+               newArray.add(array[i]);
+           }
+       }
+       String[] finalArr = new String[newArray.size()];
+       finalArr = newArray.toArray(finalArr);
+       return finalArr;
     }
 
     /**
@@ -156,8 +167,27 @@ public class StringArrayUtils {
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array)
     {
-        return null;
-    }
-
-
-}
+       ArrayList<String> consecString = new ArrayList<String>();
+       String last = array[0];
+       consecString.add(array[0]);
+       //for each word
+        for (int i =1; i < array.length; i++)
+        {
+            //String next = array[i];
+            //if the words are equal
+            if(array[i].equals(last))
+            {
+                consecString.set(consecString.size()-1, consecString.get(consecString.size()-1) + array[i]);
+            }
+            else
+            {
+                consecString.add(array[i]);
+                last = array[i];
+            }
+        }
+        String[] newArray = new String[consecString.size()];
+        newArray = consecString.toArray(new String[consecString.size()]);
+        //System.out.println(Arrays.toString(newArray));
+        return newArray;
+    } //packConsecutiveDuplicates
+} //StringArrayUtils
